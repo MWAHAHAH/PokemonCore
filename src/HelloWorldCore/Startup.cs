@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace HelloWorldCore
 {
@@ -42,6 +43,22 @@ namespace HelloWorldCore
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler(new ExceptionHandlerOptions
+                {
+                    ExceptionHandler = context => context.Response.WriteAsync("Oops!")
+                });
+            }
+
+            app.UseFileServer();
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+
+            app.UseWelcomePage(new WelcomePageOptions()
+            {
+                Path = "/welcome"
+            });
 
             app.Run(async (context) =>
             {
