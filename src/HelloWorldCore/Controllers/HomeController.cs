@@ -1,10 +1,16 @@
-﻿namespace HelloWorldCore.Controllers
+﻿using HelloWorldCore.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace HelloWorldCore.Controllers
 {
-    public class HomeController
+    public class HomeController : Controller
     {
-        public string Index()
+        
+        public IActionResult Index()
         {
-            return "Hello from the home controller!";
+            var model = new Pokemon { Id = 0, Name = "Mudkip" };
+
+            return new ObjectResult(model);
         }
     }
 }
