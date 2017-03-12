@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using Microsoft.AspNetCore.Routing;
 
 namespace HelloWorldCore
 {
@@ -56,7 +57,16 @@ namespace HelloWorldCore
             //app.UseDefaultFiles();
             //app.UseStaticFiles();
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(ConfigurateRoutes);
+
+            app.Run(ctx => ctx.Response.WriteAsync("Not Found!"));
+        }
+
+        private void ConfigurateRoutes(IRouteBuilder routeBuilder)
+        {
+            routeBuilder.MapRoute("Default",
+                    "{controller=Home}/{action=Index}/{id?}"
+                );   
         }
     }
 }
