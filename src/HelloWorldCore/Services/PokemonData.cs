@@ -1,12 +1,14 @@
 ﻿using HelloWorldCore.Entities;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace HelloWorldCore.Services
 {
     public interface IPokemonData
     {
         IEnumerable<Pokemon> GetAll();
+        Pokemon Get(int id);
     }
 
     public class InMemoryPokemonData : IPokemonData
@@ -26,6 +28,11 @@ namespace HelloWorldCore.Services
         public IEnumerable<Pokemon> GetAll()
         {
             return _pokemon;
+        }
+
+        public Pokemon Get(int id)
+        {
+            return _pokemon.FirstOrDefault(r => r.Id == id); 
         }
     }
 }

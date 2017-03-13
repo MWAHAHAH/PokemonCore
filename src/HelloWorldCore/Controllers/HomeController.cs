@@ -23,5 +23,16 @@ namespace HelloWorldCore.Controllers
 
             return View(model);
         }
+
+        public IActionResult Details(int id)
+        {
+            var model = _pokemonData.Get(id);
+            if(model == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(model);
+        }
     }
 }

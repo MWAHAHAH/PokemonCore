@@ -12,7 +12,10 @@
         @foreach (var poke in Model.Pokemons)
         {
             <tr>
-                <td>@poke.Id</td>
+                <td>
+                    <a href="/home/details/@poke.Id">Details</a>
+                    @Html.ActionLink("View", "Details", new { id = poke.Id})
+                </td>
                 <td>@poke.Name</td>
             </tr>
         }
