@@ -1,4 +1,4 @@
-﻿@model HelloWorldCore.Models.Pokemon
+﻿@model IEnumerable<HelloWorldCore.Models.Pokemon>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,6 +6,16 @@
 </head>
 <body>
     <h1>Hello from the html!</h1>
-    <div>@Model.Name</div>
+
+    <table>
+        @foreach (var poke in Model)
+        {
+            <tr>
+                <td>@poke.Id</td>
+                <td>@poke.Name</td>
+            </tr>
+        }
+    </table>
+
 </body>
 </html>

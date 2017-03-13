@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace HelloWorldCore
+namespace HelloWorldCore.Services
 {
     public interface IGreeter
     {

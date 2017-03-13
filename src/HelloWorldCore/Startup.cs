@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using Microsoft.AspNetCore.Routing;
+using HelloWorldCore.Services;
 
 namespace HelloWorldCore
 {
@@ -29,6 +30,7 @@ namespace HelloWorldCore
             services.AddMvc();
             services.AddSingleton(Configuration);
             services.AddSingleton<IGreeter, Greeter>();
+            services.AddScoped<IPokemonData, InMemoryPokemonData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
