@@ -1,4 +1,4 @@
-﻿using HelloWorldCore.Models;
+﻿using HelloWorldCore.Entities;
 using System.Collections.Generic;
 using System;
 
