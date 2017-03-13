@@ -10,7 +10,7 @@ namespace HelloWorldCore.Controllers
         {
             var model = new Pokemon { Id = 0, Name = "Mudkip" };
 
-            return new ObjectResult(model);
+            return View(model);
         }
     }
 }
